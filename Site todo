@@ -1,0 +1,2443 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nck Membrana Comercial - Circuitos Elétricos de Membrana</title>
+    <meta name="description" content="Fabricação de circuitos elétricos de membrana personalizados para equipamentos industriais, hospitalares, balanças, microondas e bombas de gasolina.">
+    <meta name="keywords" content="circuito membrana, teclado membrana, circuito industrial, circuito hospitalar, membrana eletrônica">
+
+    <link rel="shortcut icon" href="https://img.ge/i/58aig29.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="produto1.html">
+    <style>
+        :root {
+            --primary: #0064ff;
+            --primary-dark: #0040a0;
+            --secondary: #f59e0b;
+            --dark: #0a0a0a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --error: #ef4444;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        img, video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .tech-decoration {
+            position: fixed;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .tech-decoration.left {
+            left: 0;
+            background: linear-gradient(90deg, rgba(0, 100, 255, 0.3), transparent);
+            animation: pulseLeft 8s infinite alternate;
+        }
+
+        .tech-decoration.right {
+            right: 0;
+            background: linear-gradient(270deg, rgba(0, 100, 255, 0.3), transparent);
+            animation: pulseRight 8s infinite alternate 2s;
+        }
+
+        @keyframes pulseLeft {
+            0% { opacity: 0.05; }
+            100% { opacity: 0.15; }
+        }
+
+        @keyframes pulseRight {
+            0% { opacity: 0.05; }
+            100% { opacity: 0.15; }
+        }
+
+        .circuit-line {
+            position: absolute;
+            background: rgba(0, 100, 255, 0.1);
+            z-index: -1;
+        }
+
+        .circuit-line.horizontal {
+            height: 1px;
+            width: 100%;
+            animation: circuitHorizontal 15s ease-in-out infinite;
+        }
+
+        .circuit-line.vertical {
+            width: 1px;
+            height: 100%;
+            animation: circuitVertical 20s ease-in-out infinite;
+        }
+
+        @keyframes circuitHorizontal {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        @keyframes circuitVertical {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100vw); }
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        section {
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0, 100, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 100, 255, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline::before {
+            background: linear-gradient(135deg, rgba(0, 100, 255, 0.2), transparent);
+        }
+
+        .btn-outline:hover {
+            color: white;
+            border-color: transparent;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 100, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 100, 255, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .logo img {
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .logo span {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 101;
+            padding: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0.5rem 1rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav ul li:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 767px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                width: 75%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                background-color: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 1.5rem;
+                transition: all 0.3s ease;
+                border-right: 1px solid rgba(0, 100, 255, 0.3);
+                z-index: 100;
+                margin: 0;
+            }
+
+            .menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 99;
+            }
+
+            nav ul.show {
+                display: flex;
+                left: 0;
+            }
+
+            nav ul.show + .menu-overlay {
+                display: block;
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+                width: 100%;
+                text-align: left;
+            }
+
+            nav ul li a {
+                padding: 0.8rem 0;
+                font-size: 1rem;
+                display: block;
+                width: 100%;
+            }
+
+            .close-menu-btn {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+                z-index: 102;
+                display: none;
+            }
+
+            .close-menu-btn:hover {
+                color: var(--primary);
+            }
+        }
+
+        .menu-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+        }
+
+        .menu-social-links {
+            display: none;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .menu-social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://us.123rf.com/450wm/kpixmining/kpixmining1903/kpixmining190300032/119803954-closeup-de-circuito-flex%C3%ADvel-eletr%C3%B4nico-fundo-t%C3%A9cnico-abstrato-textura-azul-verde-transparente.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 100, 255, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 1.5rem;
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 100, 255, 0.3);
+            background-color: rgba(10, 10, 10, 0.5);
+            box-shadow: 0 0 30px rgba(0, 100, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 100, 255, 0.5);
+        }
+
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .specialties {
+            background-color: #101010;
+        }
+
+        .specialties::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/dark-geometric.png');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .specialty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .specialty-card {
+            background: linear-gradient(145deg, #151515, #0a0a0a);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 100, 255, 0.1);
+            position: relative;
+        }
+
+        .specialty-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 100, 255, 0.05), transparent);
+            z-index: -1;
+        }
+
+        .specialty-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 100, 255, 0.2);
+            border-color: rgba(0, 100, 255, 0.3);
+        }
+
+        .specialty-card:hover .specialty-icon {
+            transform: scale(1.2);
+            text-shadow: 0 0 15px rgba(0, 100, 255, 0.5);
+        }
+
+        .specialty-card h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .specialty-card p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .products {
+            background-color: var(--dark);
+            position: relative;
+        }
+
+        .products::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .product-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 100, 255, 0.3);
+            color: #e0e0e0;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.8rem;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 100, 255, 0.3);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-card {
+            background: linear-gradient(145deg, #151515, #0a0a0a);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 100, 255, 0.1);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 100, 255, 0.2);
+            border-color: rgba(0, 100, 255, 0.3);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            background-color: #121212;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 100, 255, 0.05), transparent);
+        }
+
+        .product-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.2rem;
+        }
+
+        .product-info h3 {
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .product-info p {
+            color: #b0b0b0;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .product-features {
+            margin-bottom: 1rem;
+        }
+
+        .product-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #b0b0b0;
+            font-size: 0.8rem;
+        }
+
+        .product-features li i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .product-contact {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-contact-btn {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            font-size: 0.7rem;
+            min-width: 0;
+            color: white !important;
+            text-decoration: none;
+        }
+
+        .product-contact-btn.whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .product-contact-btn.facebook {
+            background: linear-gradient(135deg, #3b5998, #2d4373);
+        }
+
+        .product-contact-btn.linkedin {
+            background: linear-gradient(135deg, #0077B5, #004471);
+        }
+
+        .product-contact-btn.instagram {
+            background: linear-gradient(135deg, #E1306C, #C13584);
+        }
+
+        .product-contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-box {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 100, 255, 0.3);
+        }
+
+        .social-box h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .social-links.large-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .social-links.large-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links.large-icons a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .catalog-link {
+            text-align: center;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .catalog-link p {
+            margin-bottom: 1.5rem;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .about {
+            background-color: #101010;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/dark-geometric.png');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text {
+            width: 100%;
+        }
+
+        .about-text h2 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+
+        .about-text p {
+            color: #b0b0b0;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .contact-info p a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info p a:hover {
+            color: var(--primary);
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 100, 255, 0.2);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 100, 255, 0.1), transparent);
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .features {
+            background-color: var(--dark);
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card {
+            background: linear-gradient(145deg, #151515, #0a0a0a);
+            border-radius: 10px;
+            padding: 1.2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 100, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 100, 255, 0.2);
+            border-color: rgba(0, 100, 255, 0.3);
+        }
+
+        .feature-card h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .feature-card h3 i {
+            margin-right: 0.8rem;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: #b0b0b0;
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
+        .order-process {
+            background-color: #101010;
+        }
+
+        .order-process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/dark-geometric.png');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .process-steps {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .process-step {
+            margin-bottom: 1.5rem;
+            padding: 1.2rem;
+            background: linear-gradient(145deg, #151515, #0a0a0a);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 100, 255, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 100, 255, 0.2);
+            border-color: rgba(0, 100, 255, 0.3);
+        }
+
+        .process-step h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .process-step h3 i {
+            margin-right: 0.8rem;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .process-step p {
+            color: #b0b0b0;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .process-step ul {
+            margin-left: 1.5rem;
+            color: #b0b0b0;
+            line-height: 1.7;
+        }
+
+        .process-step ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .process-step ul li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+        }
+
+        .contact {
+            background-color: var(--dark);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            word-break: break-word;
+        }
+
+        .contact-info i {
+            margin-right: 0.8rem;
+            color: var(--primary);
+            font-size: 1rem;
+            min-width: 20px;
+        }
+
+        .contact-info .fa-whatsapp {
+            color: #25D366;
+        }
+
+        .contact-info .fa-facebook {
+            color: #3b5998;
+        }
+
+        .contact-info .fa-linkedin {
+            color: #0077B5;
+        }
+
+        .contact-info .fa-instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-info .fa-envelope {
+            color: #D44638;
+        }
+
+        .contact-info .fa-phone {
+            color: #34B7F1;
+        }
+
+        .contact-info .fa-map-marker-alt {
+            color: #ff4d4d;
+        }
+
+        .contact-form {
+            background: linear-gradient(145deg, #151515, #0a0a0a);
+            padding: 1.2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 100, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border-radius: 5px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: rgba(0, 100, 255, 0.05);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea,
+        .form-group.error select {
+            border-color: var(--error);
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b0b0b0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+            background-color: #151515;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+            touch-action: manipulation;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 95%;
+            max-height: 95%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #f1f1f1;
+            font-size: 35px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--primary);
+        }
+
+        .form-feedback {
+            display: none;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .form-feedback.success {
+            display: block;
+            background-color: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .form-feedback.error {
+            display: block;
+            background-color: rgba(239, 68, 68, 0.2);
+            border: 1px solid var(--error);
+            color: var(--error);
+        }
+
+        .form-loading {
+            display: none;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .form-loading .spinner {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        footer {
+            background-color: #050505;
+            color: white;
+            padding: 2rem 0 1rem;
+            position: relative;
+            border-top: 1px solid rgba(0, 100, 255, 0.2);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/dark-geometric.png');
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+
+        .footer-column p {
+            color: #b0b0b0;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.6rem;
+            position: relative;
+            padding-left: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-column ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .footer-column ul li a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #b0b0b0;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(0, 100, 255, 0.2);
+            color: #b0b0b0;
+            font-size: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+
+            nav ul {
+                display: flex;
+                position: static;
+                height: auto;
+                background-color: transparent;
+                flex-direction: row;
+                justify-content: flex-end;
+                padding: 0;
+                width: auto;
+            }
+
+            nav ul li {
+                margin: 0 0.8rem;
+                width: auto;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+                padding: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                flex-direction: row;
+                gap: 3rem;
+            }
+
+            .about-text {
+                flex: 1;
+            }
+
+            .about-image {
+                flex: 1;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .product-contact {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .product-contact-btn {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            section {
+                padding: 5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .product-contact-btn {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            nav ul {
+                width: 75%;
+            }
+            
+            .menu-title,
+            .menu-social-links {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .specialty-card, .feature-card {
+                padding: 1rem;
+            }
+
+            .product-info {
+                padding: 1rem;
+            }
+
+            .product-contact-btn {
+                padding: 0.5rem;
+                font-size: 0.6rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .product-categories {
+                gap: 0.3rem;
+            }
+
+            .category-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.7rem;
+                min-width: 100px;
+            }
+        }
+
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            select,
+            textarea,
+            input {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tech-decoration left"></div>
+    <div class="tech-decoration right"></div>
+
+    <div class="circuit-line horizontal" style="top: 20%;"></div>
+    <div class="circuit-line horizontal" style="top: 40%;"></div>
+    <div class="circuit-line horizontal" style="top: 60%;"></div>
+    <div class="circuit-line horizontal" style="top: 80%;"></div>
+
+    <div class="circuit-line vertical" style="left: 20%;"></div>
+    <div class="circuit-line vertical" style="left: 40%;"></div>
+    <div class="circuit-line vertical" style="left: 60%;"></div>
+    <div class="circuit-line vertical" style="left: 80%;"></div>
+
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><img src="https://img.ge/i/58aig29.png" alt="NCK Membrana Comercial">Nck Membrana<span> Comercial</span></div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul id="mainMenu">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#especialidades">Especialidades</a></li>
+                        <li><a href="produto1.html">Produtos</a></li>
+                        <li><a href="#confira">Confira</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#processo">Como Encomendar</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                    <div class="menu-overlay" id="menuOverlay"></div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <button class="close-menu-btn" id="closeMenuBtn" style="display: none;">
+        <i class="fas fa-times"></i>
+    </button>
+
+    <div id="mainContent">
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Soluções em Teclados de Membrana</h1>
+                <p>Fabricamos circuitos personalizados para equipamentos hospitalares, balanças industriales, microondas comerciais, bombas de gasolina e muito mais. Qualidade e durabilidade para seu negócio.</p>
+                <div class="btn-group">
+                    <a href="produto1.html" class="btn">Conheça nossos produtos</a>
+                    <a href="https://wa.me/551158259390?text=Gostaria%20de%20solicitar%20um%20orçamento" target="_blank" class="btn btn-outline" style="color: white !important;">Solicite um orçamento</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="specialties" id="especialidades">
+            <div class="container">
+                <h2 class="section-title">Nossas Especialidades</h2>
+                <div class="specialty-grid">
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fas fa-hospital"></i></div>
+                        <h3>Teclados Hospitalares<h3>
+                        <p> Nossos teclados hospitalares são desenvolvidos com base nos modelos já existentes no mercado, priorizando funcionamento perfeito e alta qualidade.</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fas fa-weight-hanging"></i></div>
+                        <h3>Teclados de Balanças Industriais</h3>
+                        <p>Nossos teclados para balanças são baseados em modelos já consolidados no mercado, garantindo funcionamento perfeito e alta qualidade</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fas fa-microchip"></i></div>
+                        <h3>Teclado Micro-ondas industriais</h3>
+                        <p>Produzimos teclados para micro-ondas inspirados nos modelos já consolidados no mercado, assegurando excelente desempenho e qualidade superior</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fas fa-gas-pump"></i></div>
+                        <h3>Teclado de Bombas de gasolina</h3>
+                        <p>Desenvolvemos teclados para bombas inspirados nas melhores referências do mercado, entregando performance confiável e qualidade que faz a diferença</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fas fa-print"></i></div>
+                        <h3>Impressão Digital</h3>
+                        <p>Trabalhamos com todos os tipos de Materiais, pois nossa Impressora Imprime até em Policarbonatos, Viníl e Poliéster</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fas fa-tags"></i></div>
+                        <h3>Etiquetas Adesivas e automotivas</h3>
+                        <p>Trabalhamos com todos os tipos de etiquetas adesivas, tanto na Digital, como na serigrafia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products" id="confira">
+            <div class="container">
+                <h6 class="section-title">O Catálogo completo de todos os nossos produtos, estão em nossas redes sociais. Confira!</h6>
+                <h2 class="section-title">Alguns dos nossos produtos</h2>
+
+                <div class="product-categories">
+                    <button class="category-btn active" data-category="all">Todos</button>
+                    <button class="category-btn" data-category="bomba">Bomba de Gasolina</button>
+                    <button class="category-btn" data-category="microondas">Microondas</button>
+                    <button class="category-btn" data-category="etiqueta">Adesivo Automotivo</button>
+                    <button class="category-btn" data-category="impressao">Impressões Digital (Geral)</button>
+                    <button class="category-btn" data-category="balanca">Balança</button>
+                    <button class="category-btn" data-category="hospitalar">Hospitalar</button>
+                    <button class="category-btn" data-category="personalizado">Personalizados</button>
+                </div>
+
+                <div class="product-grid" id="productGrid">
+                </div>
+
+                <div class="social-box">
+                    <h3>Entre em contato para consultar nosso catálogo completo de produtos</h3>
+                    <div class="social-links large-icons">
+                        <a href="https://wa.me/551158259390" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61576193393403" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/nck.membrana.comercial/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="sobre">
+            <div class="container">
+                <h2 class="section-title">Sobre Nós</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Nck Membrana Comercial</h2>
+                        <p>Há mais de 15 anos no mercado, a Nck Membrana Comercial se especializou na fabricação de circuitos elétricos de membrana personalizados para os mais diversos segmentos industriais e comerciais.</p>
+                        <p>Atualmente atuamos apenas no ramo Comercial e nossa missão é fornecer soluções em interfaces de controle que combinem durabilidade, funcionalidade e custo-benefício, sempre adaptadas às necessidades específicas de cada cliente.</p>
+                        <p>Com um parque industrial moderno and equipe técnica qualificada, desenvolvemos produtos que atendem aos mais rigorosos padrões de qualidade, garantindo satisfação e longevidade em nossas soluções.</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> <a href="#contato">nckmembranacomercial@gmail.com</a></p>
+                            <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Av.+Guaba,+144+-+Vila+Curuça,+São+Paulo+-+SP,+08030-020" target="_blank">Avenida Guaba N 144 / CEP : 08030-020 - Vila curuça - São Paulo/SP</a></p>
+                            <p><i class="fas fa-id-card"></i> <a href="https://www.google.com/search?q=51557855000159" target="_blank">CNPJ: 51.557.855/0001-59</a></p>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://img.ge/i/Cv3y437.png" alt="Fábrica Nck Membrana">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="diferenciais">
+            <div class="container">
+                <h2 class="section-title">Nossos Diferenciais</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-certificate"></i> Qualidade</h3>
+                        <p>Nossa Empresa tem como objetivo maior, manter o Padrão de qualidade de acordo com a solicitação de nossos Clientes, visando sempre atender da melhor forma possível. Matérias primas Aprovadas, e testadas de acordo com os Padrões exigida pelas certificadoras. (iso 9001) </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3><i class="fas fa-cogs"></i> Customização</h3>
+                        <p>Apresentamos sempre aos nossos Clientes uma forma de manter a qualidade utilizando Matérias Primas que atende sua necessidade com Custo benefício mais atraente.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3><i class="fas fa-truck"></i>Entrega<h3>
+                        <p>Apresentado aos nossos Clientes no ato do pedido mediante demanda em Produção.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3><i class="fas fa-headset"></i> Suporte Técnico</h3>
+                        <p>Equipe especializada pronta para auxiliar na escolha do produto ideal e oferecer suporte pós-venda quando necessário.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3><i class="fas fa-shield-alt"></i> Garantia </h3>
+                        <p>Nossa Empresa garante a qualidade dos produtos de forma que a garantia de Teclados de Membranas atende os 06 meses após aplicação no Equipamento</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3><i class="fas fa-tools"></i> Desenvolvimento</h3>
+                        <p>Nossa Empresa tem Desenvolvimentos próprios, pois dessa forma garantimos a criação de Projetos com mais detalhes, e agilidade na criação dos mesmos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="order-process" id="processo">
+            <div class="container">
+                <h2 class="section-title">Como Encomendar</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <h3><i class="fas fa-envelope"></i> 1. Entre em contato</h3>
+                        <p>Envie suas especificações para nossa equipe através de:</p>
+                        <ul>
+                            <li>Formulário de contato em nosso site</li>
+                            <li>E-mail: nckmembranacomercial@gmail.com</li>
+                            <li>WhatsApp: (11) 5825-9390</li>
+                            <li>Facebook: Nck Membrana Comercial</li>
+                            <li>Instagram: @nck.membrana.comercial</li>
+                            <li>LinkedIn: Nck Membrana</li>
+                        </ul>
+                        <p>Se possível, inclua fotos ou diagramas do equipamento e circuito atual para melhor entendimento.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <h3><i class="fas fa-file-alt"></i> 2. Receba seu orçamento</h3>
+                        <p>Nossa equipe técnica analisará suas necessidades and em até 24 horas úteis você receberá:</p>
+                        <ul>
+                            <li>Proposta comercial detalhada</li>
+                            <li>Layout proposto para o circuito</li>
+                            <li>Especificações técnicas</li>
+                            <li>Prazo de produção and entrega</li>
+                        </ul>
+                    </div>
+
+                    <div class="process-step">
+                        <h3><i class="fas fa-check-circle"></i> 3. Aprovação and produção</h3>
+                        <p>Após sua aprovação do orçamento and confirmação do pedido:</p>
+                        <ul>
+                            <li>Desenvolvemos uma amostra/protótipo (quando necessário)</li>
+                            <li>Iniciamos a produção do lote solicitado</li>
+                            <li>Realizamos testes de qualidade em 100% das peças</li>
+                        </ul>
+                    </div>
+
+                    <div class="process-step">
+                        <h3><i class="fas fa-truck"></i> 4. Entrega</h3>
+                        <p>Seu pedido será entregue conforme solicitado no pedido de compra com:</p>
+                        <ul>
+                            <li>Nota fiscal</li>
+                            <li>Especificações Técnicas</li>
+                            <li>Garantia de 6 meses após utilização</li>
+                        </ul>
+                        <p>Nossa equipe está disponível para dúvidas pós-entrega and suporte técnico.</p>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://wa.me/551158259390?text=Gostaria%20de%20solicitar%20um%20orçamento" target="_blank" class="btn">Solicitar Orçamento via WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contato">
+            <div class="container">
+                <h2 class="section-title">Contato</h2>
+                <div class="contact-grid">
+                    <div>
+                        <h3>Informações de Contato</h3>
+                        <div class="contact-info">
+                            <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Av.+Guaba,+144+-+Vila+Curuça,+São+Paulo+-+SP,+08030-020" target="_blank">Avenida Guaba N 144 / CEP : 08030-020 - Vila curuça - São Paulo/SP</a></p>
+                            <p><i class="fas fa-id-card"></i> <a href="https://www.google.com/search?q=51557855000159" target="_blank">CNPJ: 51.557.855/0001-59</a></p>
+                            <p><i class="fas fa-envelope"></i> nckmembranacomercial@gmail.com</p>
+                            <p><i class="fas fa-clock"></i> Segunda a Sexta: 7hr às 18hr | Sábado: 9hr às 14hr | Domingo: Fechado</p>
+                            <p><i class="fas fa-truck"></i> Entregamos em todos os lugares do Brasil and exterior</p>
+                            <p><i class="fas fa-handshake"></i> Abertos a parcerias comerciais</p>
+                        </div>
+
+                        <h3 style="margin-top: 2rem;">Nossas Redes Sociais</h3>
+                        <div class="social-links">
+                            <a href="mailto:nckmembranacomercial@gmail.com" title="E-mail">
+                                <i class="fas fa-envelope" style="color: #D44638;"></i>
+                            </a>
+                            <a href="https://wa.me/551158259390" target="_blank" title="WhatsApp">
+                                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/nck-membrana-199038364/?trk=opento_sprofile_topcard" target="_blank" title="LinkedIn">
+                                <i class="fab fa-linkedin" style="color: #0077B5;"></i>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61576193393403" target="_blank" title="Facebook">
+                                <i class="fab fa-facebook" style="color: #3b5998;"></i>
+                            </a>
+                            <a href="https://www.instagram.com/nck.membrana.comercial/" target="_blank" title="Instagram">
+                                <i class="fab fa-instagram" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Envie sua Mensagem</h3>
+                        <form id="contactForm" action="https://formsubmit.co/nckmembranacomercial@gmail.com" method="POST">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://nckmembrama.com.br/obrigado.html">
+                            <input type="hidden" name="_subject" value="Novo contato do site Nck Membrana">
+                            <input type="hidden" name="_template" value="box">
+                            
+                            <div id="formFeedback" class="form-feedback"></div>
+                            
+                            <div id="formLoading" class="form-loading">
+                                <div class="spinner"></div>
+                                <p>Enviando sua mensagem...</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message">Por favor, insira seu nome completo</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message">Por favor, insira um e-mail válido</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                                <span class="error-message">Por favor, insira um telefone válido</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Assunto</label>
+                                <select id="subject" name="subject" style="background-color: #151515;">
+                                    <option value="orcamento">Solicitar Orçamento</option>
+                                    <option value="duvida">Tirar Dúvida</option>
+                                    <option value="reclamacao">Fazer Reclamação</option>
+                                    <option value="suporte">Suporte Técnico</option>
+                                    <option value="garantia">Garantia/Assistência</option>
+                                    <option value="parceria">Proposta de Parceria</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" name="message" required></textarea>
+                                <span class="error-message">Por favor, insira sua mensagem</span>
+                            </div>
+
+                            <button type="submit" class="btn">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>Nck Membrana</h3>
+                        <p>Especialistas em circuitos elétricos de membrana personalizados para aplicações industriais, hospitalares and comerciais.</p>
+                        <p><i class="fas fa-envelope"></i> nckmembranacomercial@gmail.com</p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Produtos</h3>
+                        <ul>
+                            <li><a href="#confira">Bombas de Gasolina</a></li>
+                            <li><a href="#confira">Microondas</a></li>
+                            <li><a href="#confira">Adesivos Automotivos</a></li>
+                            <li><a href="#confira">Impressões Digitais</a></li>
+                            <li><a href="#confira">Balanças</a></li>
+                            <li><a href="#confira">Equipamentos Hospitalares</a></li>
+                            <li><a href="#confira">Produtos Personalizados</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Links Úteis</h3>
+                        <ul>
+                            <li><a href="#processo">Como Encomendar</a></li>
+                            <li><a href="#especialidades">Nossas Especialidades</a></li>
+                            <li><a href="#diferenciais">Diferenciais</a></li>
+                            <li><a href="#contato">Fale Conosco</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Contato Rápido</h3>
+                        <div class="social-links">
+                            <a href="mailto:nckmembranacomercial@gmail.com" title="E-mail">
+                                <i class="fas fa-envelope" style="color: #D44638;"></i>
+                            </a>
+                            <a href="https://wa.me/551158259390" target="_blank" title="WhatsApp">
+                                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/nck-membrana-199038364/?trk=opento_sprofile_topcard" target="_blank" title="LinkedIn">
+                                <i class="fab fa-linkedin" style="color: #0077B5;"></i>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61576193393403" target="_blank" title="Facebook">
+                                <i class="fab fa-facebook" style="color: #3b5998;"></i>
+                            </a>
+                            <a href="https://www.instagram.com/nck.membrana.comercial/" target="_blank" title="Instagram">
+                                <i class="fab fa-instagram" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                            </a>
+                        </div>
+                        <p style="margin-top: 1.5rem;">Entre em contato diretamente</p>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    <p>&copy; 2025 Nck Membrana Comercial. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "Teclado Linet KA",
+                image: "https://img.ge/i/hzrp255.png",
+                category: "hospitalar",
+                description: "Teclado desenvolvido para equipamentos hospitalares, com materiais que permitem limpeza frequente sem danificar o circuito.",
+                features: [
+                    "Entrega rápida para manutenção de equipamentos"
+                ],
+                price: 89.90
+            },
+            {
+                id: 2,
+                name: "Teclado Hill Rom Care Assist LD",
+                image: "https://img.ge/i/srT9255.png",
+                category: "hospitalar",
+                description: "Substituto para teclados de leitos hospitalares, mantendo todas as funcionalidades do original.",
+                features: [
+                    "Compatível com modelos Hill Rom"
+                ],
+                price: 99.90
+            },
+            {
+                id: 3,
+                name: "Teclado Cama Hill Rom Hr 900 11 Teclas Ld Dir",
+                image: "https://img.ge/i/DhClD55.png",
+                category: "hospitalar",
+                description: "Teclado para leitos hospitalares, desenvolvido para substituir peças originais com custo reduzido.",
+                features: [
+                    "Suporte técnico especializado"
+                ],
+                price: 109.90
+            },
+            {
+                id: 4,
+                name: "Teclado Balança Toledo Prix 4 Uno",
+                image: "https://img.ge/i/esDcC47.png",
+                category: "balanca",
+                description: "Teclado desenvolvido para balanças Toledo, mantendo a mesma qualidade and funcionalidade do original.",
+                features: [
+                    "Compatível com modelos Prix 4"
+                ],
+                price: 79.90
+            },
+            {
+                id: 5,
+                name: "Teclado Balança Toledo Prix 4 Due",
+                image: "https://img.ge/i/jvdsg47.png",
+                category: "balanca",
+                description: "Reposição para teclados de balanças comerciais, com garantia de funcionamento igual ao original.",
+                features: [
+                    "Entrega em todo o Brasil"
+                ],
+                price: 84.90
+            },
+            {
+                id: 6,
+                name: "Teclado Balança Toledo Prix 5 Preta Plus 30/32kg",
+                image: "https://img.ge/i/S1xVw47.png",
+                category: "balanca",
+                description: "Teclado substituto para balanças Toledo, solução econômica para manutenção de equipamentos.",
+                features: [
+                    "Compatível com modelos Prix 5"
+                ],
+                price: 89.90
+            },
+            {
+                id: 7,
+                name: "Painel Teclado Membrana Brastemp Bm45bbhna Ative",
+                image: "https://img.ge/i/9uqCa49.png",
+                category: "microondas",
+                description: "Painel de membrana para microondas Brastemp, solução para reparo de equipamentos.",
+                features: [
+                    "Custo-benefício"
+                ],
+                price: 59.90
+            },
+            {
+                id: 8,
+                name: "Membrana Teclado Microondas Electrolux Mef41",
+                image: "https://img.ge/i/ZnblL60.png",
+                category: "microondas",
+                description: "Teclado de membrana para microondas Electrolux, substituição direta para o original.",
+                features: [
+                    "Compatível com modelos MEF41"
+                ],
+                price: 64.90
+            },
+            {
+                id: 9,
+                name: "Membrana Teclado Microondas Electrolux Mto30",
+                image: "https://img.ge/i/TOr1C49.png",
+                category: "microondas",
+                description: "Painel de teclas para microondas Electrolux, solução para reparo de equipamentos.",
+                features: [
+                    "Compatível com modelos MTO30"
+                ],
+                price: 69.90
+            },
+            {
+                id: 10,
+                name: "Teclado Para Bomba De Combustível Gilb Gb 5 Teclas- (Pinado Fêmea)",
+                image: "https://img.ge/i/F6Hfg74.png",
+                category: "bomba",
+                description: "Teclado para bombas de combustível, desenvolvido para resistir ao uso intensivo em postos.",
+                features: [
+                    "Compatível com modelos Gilbarco"
+                ],
+                price: 119.90
+            },
+            {
+                id: 11,
+                name: "Teclado Bomba De Combust Gilb Gerencial Pro-Cepel (Pinado Fêmea)",
+                image: "https://img.ge/i/2LJNu74.png",
+                category: "bomba",
+                description: "Teclado para sistemas de gerenciamento de bombas, with conectores pinados.",
+                features: [
+                    "Para uso em postos de combustível"
+                ],
+                price: 129.90
+            },
+            {
+                id: 12,
+                name: "Teclado Para Bomba Gilbarco",
+                image: "https://img.ge/i/YCf9J74.png",
+                category: "bomba",
+                description: "Teclado para bombas Gilbarco, solução para manutenção em postos de gasolina.",
+                features: [
+                    "Entrega em todo o país"
+                ],
+                price: 139.90
+            },
+            {
+                id: 13,
+                name: "CL Luz Digital",
+                image: "https://img.ge/i/9pyf14.png",
+                category: "impressao",
+                description: "Serviço de impressão digital em diversos materiais, com alta qualidade and cores vivas.",
+                features: [
+                    "Solução personalizada"
+                ],
+                price: 29.90
+            },
+            {
+                id: 14,
+                name: "Lumilhith Digital",
+                image: "https://img.ge/i/ZfuQH4.png",
+                category: "impressao",
+                description: "Impressão digital em materiais especiais para diversas aplicações industriais.",
+                features: [
+                    "Solução personalizada"
+                ],
+                price: 34.90
+            },
+            {
+                id: 15,
+                name: "IJ-21300  Digital",
+                image: "https://img.ge/i/7r6Ab4.png",
+                category: "impressao",
+                description: "Serviço de impressão digital para pequenas and médias demandas, com qualidade profissional.",
+                features: [
+                    "Atendimento personalizado"
+                ],
+                price: 39.90
+            },
+            {
+                id: 16,
+                name: "K200 Automotivo",
+                image: "https://img.ge/i/5nLXL31.png",
+                category: "etiqueta",
+                description: "Etiquetas automotivas resistentes a óleos and produtos químicos, para identificação de peças.",
+                features: [
+                    "Personalização conforme necessidade"
+                ],
+                price: 19.90
+            },
+            {
+                id: 17,
+                name: "KA-042 Automotivo",
+                image: "https://img.ge/i/7np2g31.png",
+                category: "etiqueta",
+                description: "Etiquetas para aplicação em peças automotivas, com excelente aderência.",
+                features: [
+                    "Personalização conforme necessidade"
+                ],
+                price: 24.90
+            },
+            {
+                id: 18,
+                name: "KA-201 Max Parts Polic Automotivo",
+                image: "https://img.ge/i/GZMf831.png",
+                category: "etiqueta",
+                description: "Etiquetas para identificação de peças automotivas, com excelente custo-benefício.",
+                features: [
+                    "Entrega rápida"
+                ],
+                price: 29.90
+            },
+            {
+                id: 19,
+                name: "Circuitos Personalizados",
+                image: "https://img.ge/i/iJplC71.png",
+                category: "personalizado",
+                description: "Desenvolvemos circuitos de membrana sob medida para atender necessidades específicas.",
+                features: [
+                    "Orçamento sem compromisso"
+                ],
+                price: 0
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const productGrid = document.getElementById('productGrid');
+            const contactForm = document.getElementById('contactForm');
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const closeBtn = document.getElementsByClassName('close')[0];
+            const menuToggle = document.getElementById('menuToggle');
+            const mainMenu = document.getElementById('mainMenu');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+            const formFeedback = document.getElementById('formFeedback');
+            const formLoading = document.getElementById('formLoading');
+            
+            menuToggle.addEventListener('click', function() {
+                openMenu();
+            });
+
+            closeMenuBtn.addEventListener('click', function() {
+                closeMenu();
+            });
+
+            menuOverlay.addEventListener('click', function() {
+                closeMenu();
+            });
+
+            document.querySelectorAll('#mainMenu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    closeMenu();
+                });
+            });
+
+            function openMenu() {
+                document.body.style.overflow = 'hidden';
+                mainMenu.classList.add('show');
+                menuOverlay.style.display = 'block';
+                closeMenuBtn.style.display = 'block';
+                
+                document.querySelector('.menu-title').style.display = 'block';
+                document.querySelector('.menu-social-links').style.display = 'flex';
+            }
+
+            function closeMenu() {
+                document.body.style.overflow = 'auto';
+                mainMenu.classList.remove('show');
+                menuOverlay.style.display = 'none';
+                closeMenuBtn.style.display = 'none';
+                
+                document.querySelector('.menu-title').style.display = 'none';
+                document.querySelector('.menu-social-links').style.display = 'none';
+            }
+
+            window.openModal = function (imgSrc) {
+                modal.style.display = "block";
+                modalImg.src = imgSrc;
+            }
+
+            closeBtn.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            function validateForm() {
+                let isValid = true;
+                
+                const name = document.getElementById('name');
+                if (name.value.trim() === '' || name.value.trim().length < 3) {
+                    name.parentElement.classList.add('error');
+                    isValid = false;
+                } else {
+                    name.parentElement.classList.remove('error');
+                }
+                
+                const email = document.getElementById('email');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email.value.trim())) {
+                    email.parentElement.classList.add('error');
+                    isValid = false;
+                } else {
+                    email.parentElement.classList.remove('error');
+                }
+                
+                const phone = document.getElementById('phone');
+                const phoneRegex = /^(\d{10,11})$/;
+                if (!phoneRegex.test(phone.value.trim().replace(/\D/g, ''))) {
+                    phone.parentElement.classList.add('error');
+                    isValid = false;
+                } else {
+                    phone.parentElement.classList.remove('error');
+                }
+                
+                const message = document.getElementById('message');
+                if (message.value.trim() === '' || message.value.trim().length < 10) {
+                    message.parentElement.classList.add('error');
+                    isValid = false;
+                } else {
+                    message.parentElement.classList.remove('error');
+                }
+                
+                return isValid;
+            }
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    
+                    formFeedback.style.display = 'none';
+                    formFeedback.className = 'form-feedback';
+                    
+                    if (!validateForm()) {
+                        formFeedback.textContent = 'Por favor, preencha todos os campos corretamente.';
+                        formFeedback.classList.add('error');
+                        formFeedback.style.display = 'block';
+                        return;
+                    }
+                    
+                    formLoading.style.display = 'block';
+                    
+                    const formData = new FormData(contactForm);
+                    
+                    fetch('https://formsubmit.co/ajax/nckmembranacomercial@gmail.com', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        formLoading.style.display = 'none';
+                        
+                        if (data.success === 'true') {
+                            formFeedback.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+                            formFeedback.classList.add('success');
+                            formFeedback.style.display = 'block';
+                            
+                            contactForm.reset();
+                            
+                            formFeedback.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            formFeedback.textContent = 'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde ou entre em contato por outro meio.';
+                            formFeedback.classList.add('error');
+                            formFeedback.style.display = 'block';
+                        }
+                    })
+                    .catch(error => {
+                        formLoading.style.display = 'none';
+                        
+                        formFeedback.textContent = 'Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde ou entre em contato por outro meio.';
+                        formFeedback.classList.add('error');
+                        formFeedback.style.display = 'block';
+                        console.error('Error:', error);
+                    });
+                });
+            }
+
+            const inputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (this.value.trim() !== '') {
+                        this.parentElement.classList.remove('error');
+                    }
+                });
+            });
+
+            let currentCategory = 'all';
+
+            function loadProducts() {
+                if (currentCategory === 'all') {
+                    const categories = [...new Set(products.map(p => p.category))];
+                    const filteredProducts = [];
+
+                    categories.forEach(category => {
+                        const firstProduct = products.find(p => p.category === category);
+                        if (firstProduct) filteredProducts.push(firstProduct);
+                    });
+
+                    renderProducts(filteredProducts);
+                } else {
+                    const filteredProducts = products.filter(p => p.category === currentCategory);
+                    renderProducts(filteredProducts);
+                }
+            }
+
+            function renderProducts(productsToRender) {
+                productGrid.innerHTML = productsToRender.map(product => `
+                    <div class="product-card" data-category="${product.category}">
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.name}" onclick="openModal('${product.image}')">
+                        </div>
+                        <div class="product-info">
+                            <h3>${product.name}</h3>
+                            <p>${product.description}</p>
+                            
+                            <ul class="product-features">
+                                ${product.features.map(feature => `
+                                    <li><i class="fas fa-check-circle"></i> ${feature}</li>
+                                `).join('')}
+                            </ul>
+                            
+                            <div class="product-contact">
+                                <a href="https://wa.me/551158259390?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20produto:%20${encodeURIComponent(product.name)}" 
+                                   target="_blank" 
+                                   class="product-contact-btn whatsapp">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="https://www.facebook.com/profile.php?id=61576193393403" 
+                                   target="_blank" 
+                                   class="product-contact-btn facebook">
+                                    <i class="fab fa-facebook"></i> Facebook
+                                </a>
+                                <a href="https://www.linkedin.com/in/nck-membrana-199038364/?trk=opento_sprofile_topcard" 
+                                   target="_blank" 
+                                   class="product-contact-btn linkedin">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
+                                <a href="https://www.instagram.com/nck.membrana.comercial/" 
+                                   target="_blank" 
+                                   class="product-contact-btn instagram">
+                                    <i class="fab fa-instagram"></i> Instagram
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            const categoryBtns = document.querySelectorAll('.category-btn');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    currentCategory = this.getAttribute('data-category');
+                    loadProducts();
+                });
+            });
+
+            loadProducts();
+            
+            const menuTitle = document.createElement('div');
+            menuTitle.className = 'menu-title';
+            menuTitle.textContent = 'Menu';
+            menuTitle.style.display = 'none';
+            mainMenu.insertBefore(menuTitle, mainMenu.firstChild);
+            
+            const menuSocialLinks = document.createElement('div');
+            menuSocialLinks.className = 'menu-social-links';
+            menuSocialLinks.innerHTML = `
+                <a href="https://wa.me/551158259390" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61576193393403" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/nck.membrana.comercial/" target="_blank"><i class="fab fa-instagram"></i></a>
+            `;
+            menuSocialLinks.style.display = 'none';
+            mainMenu.appendChild(menuSocialLinks);
+        });
+    </script>
+</body>
+</html>
