@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="produto1.html">
+    
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
     <style>
         :root {
             --primary: #0064ff;
@@ -707,7 +710,6 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 0.5rem;
             margin-top: 1rem;
-            margin-bottom: 1rem;
         }
 
         .product-contact-btn {
@@ -724,7 +726,6 @@
             font-size: 0.7rem;
             min-width: 0;
             color: white !important;
-            text-decoration: none;
         }
 
         .product-contact-btn.whatsapp {
@@ -965,98 +966,6 @@
             font-size: 0.9rem;
         }
 
-        .order-process {
-            background-color: #101010;
-        }
-
-        .order-process::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/dark-geometric.png');
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .process-steps {
-            margin-top: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .process-step {
-            margin-bottom: 1.5rem;
-            padding: 1.2rem;
-            background: linear-gradient(145deg, #151515, #0a0a0a);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(0, 100, 255, 0.1);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .process-step::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
-        }
-
-        .process-step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 100, 255, 0.2);
-            border-color: rgba(0, 100, 255, 0.3);
-        }
-
-        .process-step h3 {
-            color: #ffffff;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-        }
-
-        .process-step h3 i {
-            margin-right: 0.8rem;
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .process-step p {
-            color: #b0b0b0;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .process-step ul {
-            margin-left: 1.5rem;
-            color: #b0b0b0;
-            line-height: 1.7;
-        }
-
-        .process-step ul li {
-            margin-bottom: 0.5rem;
-            position: relative;
-            font-size: 0.9rem;
-        }
-
-        .process-step ul li::before {
-            content: '•';
-            color: var(--primary);
-            font-weight: bold;
-            position: absolute;
-            left: -1rem;
-        }
-
         .contact {
             background-color: var(--dark);
         }
@@ -1162,6 +1071,12 @@
         .form-group textarea {
             min-height: 120px;
             resize: vertical;
+        }
+
+        .g-recaptcha {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
         }
 
         .error-message {
@@ -1367,7 +1282,6 @@
             gap: 0.6rem;
             margin-top: 1rem;
             flex-wrap: wrap;
-            justify-content: center;
         }
 
         .social-links a {
@@ -1561,6 +1475,63 @@
                 font-size: 16px !important;
             }
         }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(10, 10, 10, 0.95);
+            color: white;
+            padding: 1rem;
+            z-index: 999;
+            display: none;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(0, 100, 255, 0.3);
+        }
+
+        .cookie-banner.show {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cookie-banner p {
+            margin: 0;
+            flex: 1;
+            min-width: 250px;
+            padding-right: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .cookie-banner .btn-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .cookie-banner .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 576px) {
+            .cookie-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cookie-banner p {
+                padding-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            
+            .cookie-banner .btn-group {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 
@@ -1577,6 +1548,14 @@
     <div class="circuit-line vertical" style="left: 40%;"></div>
     <div class="circuit-line vertical" style="left: 60%;"></div>
     <div class="circuit-line vertical" style="left: 80%;"></div>
+
+    <div id="cookieBanner" class="cookie-banner">
+        <p>Nós usamos cookies para melhorar sua experiência no site. Ao continuar navegando, você concorda com nossa <a href="#politica-cookies" style="color: var(--primary); text-decoration: underline;">Política de Cookies</a>.</p>
+        <div class="btn-group">
+            <button id="acceptCookies" class="btn">Aceitar</button>
+            <button id="rejectCookies" class="btn btn-outline">Recusar</button>
+        </div>
+    </div>
 
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
@@ -1597,7 +1576,6 @@
                         <li><a href="produto1.html">Produtos</a></li>
                         <li><a href="#confira">Confira</a></li>
                         <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#processo">Como Encomendar</a></li>
                         <li><a href="#contato">Contato</a></li>
                     </ul>
                     <div class="menu-overlay" id="menuOverlay"></div>
@@ -1614,7 +1592,7 @@
         <section class="hero" id="home">
             <div class="hero-content">
                 <h1>Soluções em Teclados de Membrana</h1>
-                <p>Fabricamos circuitos personalizados para equipamentos hospitalares, balanças industriales, microondas comerciais, bombas de gasolina e muito mais. Qualidade e durabilidade para seu negócio.</p>
+                <p>Fabricamos circuitos personalizados para equipamentos hospitalares, balanças industriales, microondas comerciais, bombas de gasolina e muito mais. Qualidade and durabilidade para seu negócio.</p>
                 <div class="btn-group">
                     <a href="produto1.html" class="btn">Conheça nossos produtos</a>
                     <a href="https://wa.me/551158259390?text=Gostaria%20de%20solicitar%20um%20orçamento" target="_blank" class="btn btn-outline" style="color: white !important;">Solicite um orçamento</a>
@@ -1703,7 +1681,7 @@
                         <h2>Nck Membrana Comercial</h2>
                         <p>Há mais de 15 anos no mercado, a Nck Membrana Comercial se especializou na fabricação de circuitos elétricos de membrana personalizados para os mais diversos segmentos industriais e comerciais.</p>
                         <p>Atualmente atuamos apenas no ramo Comercial e nossa missão é fornecer soluções em interfaces de controle que combinem durabilidade, funcionalidade e custo-benefício, sempre adaptadas às necessidades específicas de cada cliente.</p>
-                        <p>Com um parque industrial moderno and equipe técnica qualificada, desenvolvemos produtos que atendem aos mais rigorosos padrões de qualidade, garantindo satisfação e longevidade em nossas soluções.</p>
+                        <p>Com um parque industrial moderno and equipe técnica qualificada, desenvolvemos produtos que atendem aos mais rigorosos padrões de qualidade, garantindo satisfação and longevidade em nossas soluções.</p>
                         <div class="contact-info">
                             <p><i class="fas fa-envelope"></i> <a href="#contato">nckmembranacomercial@gmail.com</a></p>
                             <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Av.+Guaba,+144+-+Vila+Curuça,+São+Paulo+-+SP,+08030-020" target="_blank">Avenida Guaba N 144 / CEP : 08030-020 - Vila curuça - São Paulo/SP</a></p>
@@ -1754,63 +1732,6 @@
             </div>
         </section>
 
-        <section class="order-process" id="processo">
-            <div class="container">
-                <h2 class="section-title">Como Encomendar</h2>
-                <div class="process-steps">
-                    <div class="process-step">
-                        <h3><i class="fas fa-envelope"></i> 1. Entre em contato</h3>
-                        <p>Envie suas especificações para nossa equipe através de:</p>
-                        <ul>
-                            <li>Formulário de contato em nosso site</li>
-                            <li>E-mail: nckmembranacomercial@gmail.com</li>
-                            <li>WhatsApp: (11) 5825-9390</li>
-                            <li>Facebook: Nck Membrana Comercial</li>
-                            <li>Instagram: @nck.membrana.comercial</li>
-                            <li>LinkedIn: Nck Membrana</li>
-                        </ul>
-                        <p>Se possível, inclua fotos ou diagramas do equipamento e circuito atual para melhor entendimento.</p>
-                    </div>
-
-                    <div class="process-step">
-                        <h3><i class="fas fa-file-alt"></i> 2. Receba seu orçamento</h3>
-                        <p>Nossa equipe técnica analisará suas necessidades and em até 24 horas úteis você receberá:</p>
-                        <ul>
-                            <li>Proposta comercial detalhada</li>
-                            <li>Layout proposto para o circuito</li>
-                            <li>Especificações técnicas</li>
-                            <li>Prazo de produção and entrega</li>
-                        </ul>
-                    </div>
-
-                    <div class="process-step">
-                        <h3><i class="fas fa-check-circle"></i> 3. Aprovação and produção</h3>
-                        <p>Após sua aprovação do orçamento and confirmação do pedido:</p>
-                        <ul>
-                            <li>Desenvolvemos uma amostra/protótipo (quando necessário)</li>
-                            <li>Iniciamos a produção do lote solicitado</li>
-                            <li>Realizamos testes de qualidade em 100% das peças</li>
-                        </ul>
-                    </div>
-
-                    <div class="process-step">
-                        <h3><i class="fas fa-truck"></i> 4. Entrega</h3>
-                        <p>Seu pedido será entregue conforme solicitado no pedido de compra com:</p>
-                        <ul>
-                            <li>Nota fiscal</li>
-                            <li>Especificações Técnicas</li>
-                            <li>Garantia de 6 meses após utilização</li>
-                        </ul>
-                        <p>Nossa equipe está disponível para dúvidas pós-entrega and suporte técnico.</p>
-                    </div>
-                </div>
-
-                <div class="btn-group">
-                    <a href="https://wa.me/551158259390?text=Gostaria%20de%20solicitar%20um%20orçamento" target="_blank" class="btn">Solicitar Orçamento via WhatsApp</a>
-                </div>
-            </div>
-        </section>
-
         <section class="contact" id="contato">
             <div class="container">
                 <h2 class="section-title">Contato</h2>
@@ -1822,7 +1743,7 @@
                             <p><i class="fas fa-id-card"></i> <a href="https://www.google.com/search?q=51557855000159" target="_blank">CNPJ: 51.557.855/0001-59</a></p>
                             <p><i class="fas fa-envelope"></i> nckmembranacomercial@gmail.com</p>
                             <p><i class="fas fa-clock"></i> Segunda a Sexta: 7hr às 18hr | Sábado: 9hr às 14hr | Domingo: Fechado</p>
-                            <p><i class="fas fa-truck"></i> Entregamos em todos os lugares do Brasil and exterior</p>
+                            <p><i class="fas fa-truck"></i> Entregamos em todos os lugares do Brasil e exterior</p>
                             <p><i class="fas fa-handshake"></i> Abertos a parcerias comerciais</p>
                         </div>
 
@@ -1850,7 +1771,7 @@
                         <h3>Envie sua Mensagem</h3>
                         <form id="contactForm" action="https://formsubmit.co/nckmembranacomercial@gmail.com" method="POST">
                             <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="https://nckmembrama.com.br/obrigado.html">
+                            <input type="hidden" name="_next" value="https://nckmembrana.com.br/obrigado.html">
                             <input type="hidden" name="_subject" value="Novo contato do site Nck Membrana">
                             <input type="hidden" name="_template" value="box">
                             
@@ -1898,6 +1819,8 @@
                                 <span class="error-message">Por favor, insira sua mensagem</span>
                             </div>
 
+                            <div class="g-recaptcha" data-sitekey="6LeFbp8rAAAAAELWTshHFMzidRJtxIcw4h-rlpjU"></div>
+                            
                             <button type="submit" class="btn">Enviar Mensagem</button>
                         </form>
                     </div>
@@ -1910,7 +1833,7 @@
                 <div class="footer-content">
                     <div class="footer-column">
                         <h3>Nck Membrana</h3>
-                        <p>Especialistas em circuitos elétricos de membrana personalizados para aplicações industriais, hospitalares and comerciais.</p>
+                        <p>Especialistas em circuitos elétricos de membrana personalizados para aplicações industriales, hospitalares e comerciais.</p>
                         <p><i class="fas fa-envelope"></i> nckmembranacomercial@gmail.com</p>
                     </div>
 
@@ -1930,7 +1853,6 @@
                     <div class="footer-column">
                         <h3>Links Úteis</h3>
                         <ul>
-                            <li><a href="#processo">Como Encomendar</a></li>
                             <li><a href="#especialidades">Nossas Especialidades</a></li>
                             <li><a href="#diferenciais">Diferenciais</a></li>
                             <li><a href="#contato">Fale Conosco</a></li>
@@ -2007,7 +1929,7 @@
                 name: "Teclado Balança Toledo Prix 4 Uno",
                 image: "https://img.ge/i/esDcC47.png",
                 category: "balanca",
-                description: "Teclado desenvolvido para balanças Toledo, mantendo a mesma qualidade and funcionalidade do original.",
+                description: "Teclado desenvolvido para balanças Toledo, mantendo a mesma qualidade e funcionalidade do original.",
                 features: [
                     "Compatível com modelos Prix 4"
                 ],
@@ -2084,7 +2006,7 @@
                 name: "Teclado Bomba De Combust Gilb Gerencial Pro-Cepel (Pinado Fêmea)",
                 image: "https://img.ge/i/2LJNu74.png",
                 category: "bomba",
-                description: "Teclado para sistemas de gerenciamento de bombas, with conectores pinados.",
+                description: "Teclado para sistemas de gerenciamento de bombas, con conectores pinados.",
                 features: [
                     "Para uso em postos de combustível"
                 ],
@@ -2106,7 +2028,7 @@
                 name: "CL Luz Digital",
                 image: "https://img.ge/i/9pyf14.png",
                 category: "impressao",
-                description: "Serviço de impressão digital em diversos materiais, com alta qualidade and cores vivas.",
+                description: "Serviço de impressão digital em diversos materiais, com alta qualidade e cores vivas.",
                 features: [
                     "Solução personalizada"
                 ],
@@ -2128,7 +2050,7 @@
                 name: "IJ-21300  Digital",
                 image: "https://img.ge/i/7r6Ab4.png",
                 category: "impressao",
-                description: "Serviço de impressão digital para pequenas and médias demandas, com qualidade profissional.",
+                description: "Serviço de impressão digital para pequenas e médias demandas, com qualidade profissional.",
                 features: [
                     "Atendimento personalizado"
                 ],
@@ -2139,7 +2061,7 @@
                 name: "K200 Automotivo",
                 image: "https://img.ge/i/5nLXL31.png",
                 category: "etiqueta",
-                description: "Etiquetas automotivas resistentes a óleos and produtos químicos, para identificação de peças.",
+                description: "Etiquetas automotivas resistentes a óleos e produtos químicos, para identificação de peças.",
                 features: [
                     "Personalização conforme necessidade"
                 ],
@@ -2192,6 +2114,51 @@
             const closeMenuBtn = document.getElementById('closeMenuBtn');
             const formFeedback = document.getElementById('formFeedback');
             const formLoading = document.getElementById('formLoading');
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptCookiesBtn = document.getElementById('acceptCookies');
+            const rejectCookiesBtn = document.getElementById('rejectCookies');
+            
+            function checkCookiePreference() {
+                const cookiePreference = getCookie('cookiePreference');
+                
+                if (cookiePreference === '') {
+                    cookieBanner.classList.add('show');
+                } else if (cookiePreference === 'accepted') {
+                }
+            }
+            
+            function setCookie(name, value, days) {
+                let expires = "";
+                if (days) {
+                    const date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }
+            
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return '';
+            }
+            
+            acceptCookiesBtn.addEventListener('click', function() {
+                setCookie('cookiePreference', 'accepted', 365);
+                cookieBanner.classList.remove('show');
+            });
+            
+            rejectCookiesBtn.addEventListener('click', function() {
+                setCookie('cookiePreference', 'rejected', 365);
+                cookieBanner.classList.remove('show');
+            });
+            
+            checkCookiePreference();
             
             menuToggle.addEventListener('click', function() {
                 openMenu();
@@ -2283,6 +2250,16 @@
                     message.parentElement.classList.remove('error');
                 }
                 
+                if (typeof grecaptcha !== 'undefined') {
+                    const response = grecaptcha.getResponse();
+                    if (response.length === 0) {
+                        formFeedback.textContent = 'Por favor, complete o reCAPTCHA.';
+                        formFeedback.classList.add('error');
+                        formFeedback.style.display = 'block';
+                        isValid = false;
+                    }
+                }
+                
                 return isValid;
             }
 
@@ -2294,15 +2271,17 @@
                     formFeedback.className = 'form-feedback';
                     
                     if (!validateForm()) {
-                        formFeedback.textContent = 'Por favor, preencha todos os campos corretamente.';
-                        formFeedback.classList.add('error');
-                        formFeedback.style.display = 'block';
                         return;
                     }
                     
                     formLoading.style.display = 'block';
                     
                     const formData = new FormData(contactForm);
+                    
+                    if (typeof grecaptcha !== 'undefined') {
+                        const response = grecaptcha.getResponse();
+                        formData.append('g-recaptcha-response', response);
+                    }
                     
                     fetch('https://formsubmit.co/ajax/nckmembranacomercial@gmail.com', {
                         method: 'POST',
@@ -2318,6 +2297,9 @@
                             formFeedback.style.display = 'block';
                             
                             contactForm.reset();
+                            if (typeof grecaptcha !== 'undefined') {
+                                grecaptcha.reset();
+                            }
                             
                             formFeedback.scrollIntoView({ behavior: 'smooth' });
                         } else {
